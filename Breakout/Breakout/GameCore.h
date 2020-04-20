@@ -14,10 +14,9 @@ private:
 	InputManager* inputManager;
 	Timer* timer;
 
-
 public:
 	GameCore();
-
+	~GameCore();
 
 
 
@@ -28,7 +27,6 @@ public:
 	void Update();
 
 	void Render();
-
 
 
 

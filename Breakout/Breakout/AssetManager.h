@@ -24,14 +24,14 @@ private:
 	AssetManager();
 	~AssetManager();
 
-	map<string, Music*> _music;
-	map<string, SoundBuffer*> _sfx;
-	map<string, Layout*> _layout;
+	map<string, unique_ptr<Music>> _music;
+	map<string, unique_ptr<SoundBuffer>> _sfx;
+	map<string, unique_ptr<Layout>> _layout;
 
 public:
-	Layout* GetLayout(const string& filename, const Coord& position, const string& textcolor = "default", const string& backcolor = "default");
-	Music* GetMusic(const string& filename);
-	SoundBuffer* GetSFX(const string& filename);
+	unique_ptr<Layout>& GetLayout(const string& filename, const Coord& position, const string& textcolor = "default", const string& backcolor = "default");
+	unique_ptr<Music>& GetMusic(const string& filename);
+	unique_ptr<SoundBuffer>& GetSFX(const string& filename);
 
 
 

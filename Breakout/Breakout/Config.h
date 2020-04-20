@@ -13,7 +13,7 @@ private:
 	int _fps;
 	int _width;
 	int _height;
-
+	bool _isExit;
 
 public:
 	Config();
@@ -33,8 +33,15 @@ public:
 		return _height;
 	}
 
+	bool Exit()
+	{
+		return _isExit;
+	}
 
-
+	void Exit(bool exit)
+	{
+		_isExit = exit;
+	}
 
 
 };

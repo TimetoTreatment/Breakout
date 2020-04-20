@@ -21,4 +21,5 @@ Config::Config()
 	_fps = 60;
 	_width = 5;
 	_height = 5;
+	_isExit = false;
 }

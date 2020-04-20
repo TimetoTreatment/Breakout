@@ -3,11 +3,13 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include <array>
 
 using namespace std;
 
 int main()
 {
+    array<sf::Sound, 10> musics;
 
     sf::Music music;
 

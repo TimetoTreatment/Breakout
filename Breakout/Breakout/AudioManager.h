@@ -4,7 +4,7 @@
 #include "Config.h"
 #include <array>
 
-constexpr int MAX_CHANNEL = 16;
+constexpr int MAX_CHANNEL = 256;
 
 class AudioManager
 {

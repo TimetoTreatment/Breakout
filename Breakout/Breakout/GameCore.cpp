@@ -10,7 +10,14 @@ GameCore::GameCore()
 }
 
 
-
+GameCore::~GameCore()
+{
+	Config::Release();
+	AudioManager::Release();
+	AssetManager::Release();
+	InputManager::Release();
+	Timer::Release();
+}
 
 
 
@@ -23,9 +30,9 @@ void GameCore::MainLoop()
 	intro.Render();
 
 
-	//for (;;)
+	for (int i=0;i<=100000&&!config->Exit();i++)
 	{
-
+		AudioManager::Instance()->PlaySFX("music.wav");
 
 		if (timer->GetDeltaTime() >= 70000/config->FPS() )
 		{
@@ -40,8 +47,11 @@ void GameCore::MainLoop()
 
 
 
-
-
+	Config::Release();
+	AudioManager::Release();
+	AssetManager::Release();
+	InputManager::Release();
+	Timer::Release();
 
 }
 
