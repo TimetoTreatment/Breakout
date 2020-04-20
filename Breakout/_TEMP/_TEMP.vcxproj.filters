@@ -19,4 +19,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="text.txt">
+      <Filter>소스 파일</Filter>
+    </Text>
+    <Text Include="텍스트.txt">
+      <Filter>소스 파일</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

@@ -4,20 +4,6 @@
 Timer* Timer::s_instance = nullptr;
 
 
-Timer::Timer()
-{
-	_start = clock();
-}
-
-
-Timer::~Timer()
-{
-
-	
-
-}
-
-
 Timer* Timer::Instance()
 {
 	if (s_instance == nullptr)
@@ -34,13 +20,26 @@ void Timer::Release()
 }
 
 
-unsigned int Timer::Get()
+Timer::Timer()
 {
-	return clock() - _start;
+	_timer.restart();
+	
+}
+
+
+Timer::~Timer()
+{
+	
+}
+
+
+int Timer::GetDeltaTime()
+{
+	return _timer.getElapsedTime().asMilliseconds();
 }
 
 
 void Timer::Reset()
 {
-	_start = clock();
+	_timer.restart();
 }

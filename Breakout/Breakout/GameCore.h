@@ -1,18 +1,19 @@
 #pragma once
 
+#include "Config.h"
 #include "AudioManager.h"
 #include "InputManager.h"
-#include "LayoutManager.h"
 #include "Timer.h"
 
 
 class GameCore
 {
 private:
+	Config* config;
 	AudioManager* audioManager;
 	InputManager* inputManager;
-	LayoutManager* layoutManager;
 	Timer* timer;
+
 
 public:
 	GameCore();
@@ -26,7 +27,7 @@ public:
 
 	void Update();
 
-	void Draw();
+	void Render();
 
 
 

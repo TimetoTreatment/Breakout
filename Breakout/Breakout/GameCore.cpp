@@ -1,15 +1,12 @@
 #include "GameCore.h"
-
+#include "IntroScreen.h"
 
 GameCore::GameCore()
 {
+	config = Config::Instance();
 	audioManager = AudioManager::Instance();
 	inputManager = InputManager::Instance();
-	layoutManager = LayoutManager::Instance();
 	timer = Timer::Instance();
-
-
-
 }
 
 
@@ -22,39 +19,26 @@ GameCore::GameCore()
 void GameCore::MainLoop()
 {
 
-	
+	IntroScreen intro;
+	intro.Render();
 
 
-	for(;;)
+	//for (;;)
 	{
-		if (timer->Get() >= 16)
+
+
+		if (timer->GetDeltaTime() >= 70000/config->FPS() )
 		{
 			Input();
 			Update();
-			Draw();
-
-			printf("%d\n", timer->Get());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			Render();
+	
 
 			timer->Reset();
 		}
 	}
 
-	
+
 
 
 
@@ -64,8 +48,6 @@ void GameCore::MainLoop()
 
 void GameCore::Input()
 {
-
-
 
 }
 
@@ -78,7 +60,7 @@ void GameCore::Update()
 }
 
 
-void GameCore::Draw()
+void GameCore::Render()
 {
 
 

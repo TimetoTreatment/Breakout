@@ -1,29 +1,25 @@
 #pragma once
-#include <time.h>
+
+#include <SFML/Window.hpp>
 
 class Timer
 {
 private:
-
 	static Timer* s_instance;
-	Timer();
-	~Timer();
-
-	clock_t _start;
-
-
-
 
 public:
-
 	static Timer* Instance();
 	static void Release();
 
-	unsigned int Get();
+private:
+	Timer();
+	~Timer();
+
+	sf::Clock _timer;
 
 
+public:
+	int GetDeltaTime();
 	void Reset();
-
-
 };
 

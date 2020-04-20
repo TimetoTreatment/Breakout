@@ -146,9 +146,13 @@
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Console.cpp" />
     <ClCompile Include="GameCore.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="IntroScreen.cpp" />
+    <ClCompile Include="Layout.cpp" />
     <ClCompile Include="LayoutManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -156,12 +160,35 @@
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="AudioManager.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Console.h" />
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="IntroScreen.h" />
+    <ClInclude Include="Layout.h" />
+    <ClInclude Include="CommonType.h" />
     <ClInclude Include="LayoutManager.h" />
-    <ClInclude Include="Material.h" />
     <ClInclude Include="Timer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\music\music.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\music\clearSky.ogg" />
+    <None Include="Assets\sfx\laugh0.ogg" />
+    <None Include="Assets\sfx\laugh1.ogg" />
+    <None Include="Assets\sfx\laugh2.ogg" />
+    <None Include="Assets\sfx\laugh3.ogg" />
+    <None Include="Assets\sfx\laugh4.ogg" />
+    <None Include="Assets\sfx\laugh5.ogg" />
+    <None Include="Assets\sfx\laugh6.ogg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\layout\calculator.txt" />
+    <Text Include="Assets\layout\gameLogo.txt" />
+    <Text Include="Assets\layout\teamLogo.txt" />
+    <Text Include="_Singleton.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

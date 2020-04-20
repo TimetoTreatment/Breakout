@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Breakout", "Breakout\Breako
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_Reference", "_Reference\_Reference.vcxproj", "{E6074FAD-6009-4DA1-8D31-2C71CC5E513D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Calculator", "..\..\Calculator\Calculator\Calculator\Calculator.vcxproj", "{F4CBB7A1-2D05-4077-902E-D456189F66AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{E6074FAD-6009-4DA1-8D31-2C71CC5E513D}.Release|x64.Build.0 = Release|x64
 		{E6074FAD-6009-4DA1-8D31-2C71CC5E513D}.Release|x86.ActiveCfg = Release|Win32
 		{E6074FAD-6009-4DA1-8D31-2C71CC5E513D}.Release|x86.Build.0 = Release|Win32
+		{F4CBB7A1-2D05-4077-902E-D456189F66AD}.Debug|x64.ActiveCfg = Debug|x64
+		{F4CBB7A1-2D05-4077-902E-D456189F66AD}.Debug|x64.Build.0 = Debug|x64
+		{F4CBB7A1-2D05-4077-902E-D456189F66AD}.Debug|x86.ActiveCfg = Debug|Win32
+		{F4CBB7A1-2D05-4077-902E-D456189F66AD}.Debug|x86.Build.0 = Debug|Win32
+		{F4CBB7A1-2D05-4077-902E-D456189F66AD}.Release|x64.ActiveCfg = Release|x64
+		{F4CBB7A1-2D05-4077-902E-D456189F66AD}.Release|x64.Build.0 = Release|x64
+		{F4CBB7A1-2D05-4077-902E-D456189F66AD}.Release|x86.ActiveCfg = Release|Win32
+		{F4CBB7A1-2D05-4077-902E-D456189F66AD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
