@@ -14,37 +14,12 @@ public:
 
 private:
 
-	LayoutManager()
-	{
-
-
-
-
-
-	}
-
-
-	~LayoutManager()
-	{
-
-	}
-
-
-
+	LayoutManager();
+	~LayoutManager();
 
 
 public:
-	Layout* New(const string& filename, const Coord& position = COORD_ZERO, const string& textColor = "default", const string& backColor = "default")
-	{
-		return AssetManager::Instance()->GetLayout(filename, position, textColor, backColor).get();
-	}
 
-
-
-
-
-
-
-
+	Layout* New(const string& filename, const Coord& position = COORD_ZERO, const string& textColor = "default", const string& backColor = "default");
 };
 

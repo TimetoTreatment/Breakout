@@ -1,17 +1,10 @@
 #include "GameCore.h"
 
-
 int main(void)
 {
-	GameCore gameCore;
+	GameCore::Instance()->MainLoop();
+	GameCore::Release();
 
-	gameCore.MainLoop();
-	
-	
-	for (;;)
-	{
-
-	}
-
+	Sleep(10000);
 	return 0;
 }

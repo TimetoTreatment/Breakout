@@ -9,26 +9,25 @@
 class GameCore
 {
 private:
+	static GameCore* s_instance;
+
+public:
+	static GameCore* Instance();
+	static void Release();
+
+private:
 	Config* config;
 	AudioManager* audioManager;
 	InputManager* inputManager;
-	Timer* timer;
+	Timer timer;
 
 public:
 	GameCore();
 	~GameCore();
 
-
-
 	void MainLoop();
-
 	void Input();
-
 	void Update();
-
 	void Render();
-
-
-
 };
 

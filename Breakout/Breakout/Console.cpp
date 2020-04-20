@@ -84,3 +84,10 @@ void Console::setCursorPosition(int x, int y)
 	//std::cout.flush();
 	SetConsoleCursorPosition(hConsole, { (short)x, (short)y });
 }
+
+
+void Console::setCursorPositionDefault()
+{
+	//std::cout.flush();
+	SetConsoleCursorPosition(hConsole, { 0,0});
+}

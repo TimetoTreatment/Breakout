@@ -1,14 +1,28 @@
 #include "GameCore.h"
 #include "IntroScreen.h"
 
+GameCore* GameCore::s_instance = nullptr;
+
+GameCore* GameCore::Instance()
+{
+	if (s_instance == nullptr)
+		s_instance = new GameCore;
+
+	return s_instance;
+}
+
+void GameCore::Release()
+{
+	delete s_instance;
+	s_instance = nullptr;
+}
+
 GameCore::GameCore()
 {
 	config = Config::Instance();
 	audioManager = AudioManager::Instance();
 	inputManager = InputManager::Instance();
-	timer = Timer::Instance();
 }
-
 
 GameCore::~GameCore()
 {
@@ -16,42 +30,28 @@ GameCore::~GameCore()
 	AudioManager::Release();
 	AssetManager::Release();
 	InputManager::Release();
-	Timer::Release();
 }
-
-
-
 
 
 void GameCore::MainLoop()
 {
-
 	IntroScreen intro;
-	intro.Render();
 
-
-	for (int i=0;i<=100000&&!config->Exit();i++)
-	{
-		AudioManager::Instance()->PlaySFX("music.wav");
-
-		if (timer->GetDeltaTime() >= 70000/config->FPS() )
-		{
-			Input();
-			Update();
-			Render();
 	
 
-			timer->Reset();
-		}
+	for (timer.Reset(); !config->Exit(); timer.Reset())
+	{
+		Sleep(1000 / config->FPS() - timer.GetDeltaTime());
+
+		Input();
+		Update();
+		Render();
+		intro.Render();
+
+
 	}
 
 
-
-	Config::Release();
-	AudioManager::Release();
-	AssetManager::Release();
-	InputManager::Release();
-	Timer::Release();
 
 }
 

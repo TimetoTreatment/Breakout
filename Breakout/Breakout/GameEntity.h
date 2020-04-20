@@ -17,50 +17,22 @@ public:
 	GameEntity(Coord position = COORD_ZERO);
 	~GameEntity();
 
-	void Position(Coord position)
-	{
-		_position += position;
-	}
+	void Position(Coord position);
 
-	Coord& Position()
-	{
-		return _position;
-	}
+	Coord& Position();
 
-	void Active(bool active)
-	{
-		_active = active;
-	}
+	void Active(bool active);
 
-	bool Active()
-	{
-		return _active;
-	}
+	bool Active();
 
-	void Parent(GameEntity* parent)
-	{
-		_position += parent->Position();
-		_parent = parent;
-	}
+	void Parent(GameEntity* parent);
 
-	GameEntity* Parent()
-	{
-		return _parent;
-	}
+	GameEntity* Parent();
 
-	void Translate(Coord coord)
-	{
-		_position += coord;
-	}
+	void Translate(Coord coord);
 
-	virtual void Update()
-	{
+	virtual void Update();
 
-	}
-
-	virtual void Render()
-	{
-
-	}
+	virtual void Render();
 
 };

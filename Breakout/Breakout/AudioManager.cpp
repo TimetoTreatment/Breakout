@@ -51,15 +51,18 @@ void AudioManager::PlayMusic(const string& filename)
 	
 }
 
+
 void AudioManager::PauseMusic(string&& filename)
 {
 	assetManager->GetMusic(filename)->pause();
 }
 
+
 void AudioManager::StopMusic(string&& filename)
 {
 	assetManager->GetMusic(filename)->stop();
 }
+
 
 void AudioManager::PlaySFX(const string& filename)
 {

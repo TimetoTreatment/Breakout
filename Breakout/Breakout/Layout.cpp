@@ -73,7 +73,19 @@ void Layout::Render()
 	console->setColor(_textColor, _backColor);
 	console->setCursorPosition(startX, startY);
 
-	cout << _contents;
+	for (size_t index = 0; index < _contents.size(); index++)
+	{
+		for (;; index++)
+		{
+			if (_contents[index] == '\n')
+			{
+				console->setCursorPosition(startX, (++startY));
+				break;
+			}
+
+			cout << _contents[index];
+		}
+	}
 }
 
 

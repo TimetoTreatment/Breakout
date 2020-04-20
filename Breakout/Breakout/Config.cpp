@@ -19,7 +19,7 @@ void Config::Release()
 Config::Config()
 {
 	_fps = 60;
-	_width = 5;
-	_height = 5;
+	_width = 130;
+	_height = 45;
 	_isExit = false;
 }
