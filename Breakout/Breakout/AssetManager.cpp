@@ -29,17 +29,21 @@ AssetManager::~AssetManager()
 
 
 
-unique_ptr<Layout>& AssetManager::GetLayout(const string& filename, const Coord& position, const string& textColor, const string& backColor)
+unique_ptr<Layout>& AssetManager::GetLayout(const string& fileOrString, const Coord& position, const string& textColor, const string& backColor)
 {
-	string path = "Assets/layout/" + filename;
+	string path = "Assets/layout/" + fileOrString;
 	string key = path + textColor + backColor;
 
 	if (_layout[key] == nullptr)
 	{
 		_layout[key] = make_unique<Layout>();
-		_layout[key]->OpenFromFile(path);
 		_layout[key]->Color(textColor, backColor);
 		_layout[key]->Position(position);
+
+		if (fileOrString.find(".txt") != string::npos)
+			_layout[key]->OpenFromFile(path);
+		else
+			_layout[key]->LoadFromString(fileOrString);
 	}
 
 

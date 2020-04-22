@@ -4,21 +4,17 @@
 #include <fstream>
 #include <iostream>
 #include <array>
+#include <SFML/System.hpp>
 
 using namespace std;
 
 int main()
 {
-    array<sf::Sound, 10> musics;
-
-    sf::Music music;
-
-    music.openFromFile("assets/sounds/sound.wav");
-
-    music.play();
+    
 
 
-    system("pause");
+
+
 
 
     return 0;

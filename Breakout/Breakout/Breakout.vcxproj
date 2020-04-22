@@ -23,6 +23,7 @@
     <ProjectGuid>{16768322-9221-4C23-B6D7-A31AA693FA67}</ProjectGuid>
     <RootNamespace>Breakout</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>CodeSlayer</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -150,12 +151,15 @@
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="GameCore.cpp" />
     <ClCompile Include="GameEntity.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="IntroScreen.cpp" />
     <ClCompile Include="Layout.cpp" />
     <ClCompile Include="LayoutManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,12 +169,15 @@
     <ClInclude Include="Console.h" />
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="GameEntity.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="IntroScreen.h" />
     <ClInclude Include="Layout.h" />
     <ClInclude Include="CommonType.h" />
     <ClInclude Include="LayoutManager.h" />
+    <ClInclude Include="MainScreen.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="ScreenManager.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>
@@ -189,7 +196,9 @@
   <ItemGroup>
     <Text Include="Assets\layout\calculator.txt" />
     <Text Include="Assets\layout\gameLogo.txt" />
+    <Text Include="Assets\layout\teamBoard.txt" />
     <Text Include="Assets\layout\teamLogo.txt" />
+    <Text Include="Assets\layout\teamMember.txt" />
     <Text Include="_Singleton.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

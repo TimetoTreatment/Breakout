@@ -46,21 +46,26 @@ void AudioManager::Release()
 
 void AudioManager::PlayMusic(const string& filename)
 {
-	assetManager->GetMusic(filename)->play();
+	if (assetManager->GetMusic(filename)->getStatus() != sf::Music::Playing)
+	{
+		
 
-	
+
+		assetManager->GetMusic(filename)->play();
+		_currentMusicFile = filename;
+	}
 }
 
 
-void AudioManager::PauseMusic(string&& filename)
+void AudioManager::PauseMusic()
 {
-	assetManager->GetMusic(filename)->pause();
+	assetManager->GetMusic(_currentMusicFile)->pause();
 }
 
 
-void AudioManager::StopMusic(string&& filename)
+void AudioManager::StopMusic()
 {
-	assetManager->GetMusic(filename)->stop();
+	assetManager->GetMusic(_currentMusicFile)->stop();
 }
 
 
@@ -73,4 +78,12 @@ void AudioManager::PlaySFX(const string& filename)
 
 	channel->setBuffer(*assetManager->GetSFX(filename));
 	channel->play();
+}
+
+bool AudioManager::isMusicPlayed()
+{
+	if (assetManager->GetMusic(_currentMusicFile)->getStatus() == sf::Music::Playing)
+		return true;
+
+	return false;
 }

@@ -20,6 +20,6 @@ private:
 
 public:
 
-	Layout* New(const string& filename, const Coord& position = COORD_ZERO, const string& textColor = "default", const string& backColor = "default");
+	Layout* New(const string& filename, const Coord& position = { 0, 0 }, const string& textColor = "default", const string& backColor = "default");
 };
 

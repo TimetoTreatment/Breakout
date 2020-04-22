@@ -3,54 +3,23 @@
 #include "AudioManager.h"
 #include "Timer.h"
 
-class IntroScreen : public GameEntity
+class IntroScreen : public GameObject
 {
 private:
 	Layout* _teamLogo;
+	Layout* _teamBoard;
+	Layout* _teamMember;
 	Layout* _gameLogo;
+	Layout* _startPrompt;
 	LayoutManager* layoutManager = LayoutManager::Instance();
 	Config* config = Config::Instance();
-	Timer timer;
-	bool draw;
+	Timer* layoutTimer;
+	Timer* colorTimer;
 
 public:
 	IntroScreen();
+	~IntroScreen();
 
-
-
-	void Update()
-	{
-
-
-
-
-
-	}
-
-
-
-
-	void Render()
-	{
-		if (timer.GetDeltaTime() > 1000 && draw==false)
-		{
-			_teamLogo->Render();
-			_gameLogo->Render();
-
-			AudioManager::Instance()->PlaySFX("laugh2.ogg");
-
-			draw = true;
-		}
-
-
-
-
-	}
-
-
-
-
-
-
+	void Update();
+	void Render();
 };
-

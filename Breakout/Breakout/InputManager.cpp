@@ -1,9 +1,6 @@
 #include "InputManager.h"
 
 
-/////////////
-/* Private */
-/////////////
 InputManager* InputManager::s_instance = nullptr;
 
 InputManager::InputManager()
@@ -21,10 +18,6 @@ InputManager::~InputManager()
 
 
 
-////////////
-/* Public */
-////////////
-
 InputManager* InputManager::Instance()
 {
 	if (s_instance == nullptr)
@@ -38,4 +31,10 @@ void  InputManager::Release()
 {
 	delete s_instance;
 	s_instance = nullptr;
+}
+
+
+bool InputManager::KeyPressed(sf::Keyboard::Key key)
+{
+	return sf::Keyboard::isKeyPressed(key);
 }

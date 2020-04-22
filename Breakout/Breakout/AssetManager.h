@@ -1,8 +1,6 @@
 #pragma once
 #include <unordered_map>
-#include <SFML/Audio.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
+#include "SFML/Audio.hpp"
 #include "Layout.h"
 
 
@@ -29,7 +27,7 @@ private:
 	unordered_map<string, unique_ptr<Layout>> _layout;
 
 public:
-	unique_ptr<Layout>& GetLayout(const string& filename, const Coord& position, const string& textcolor = "default", const string& backcolor = "default");
+	unique_ptr<Layout>& GetLayout(const string& fileOrString, const Coord& position, const string& textcolor = "default", const string& backcolor = "default");
 	unique_ptr<Music>& GetMusic(const string& filename);
 	unique_ptr<SoundBuffer>& GetSFX(const string& filename);
 

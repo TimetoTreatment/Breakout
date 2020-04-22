@@ -1,36 +1,38 @@
 #pragma once
 
-struct Coord
+class Coord
 {
+public:
+
 	int x;
 	int y;
 
 	Coord(int inputX = 0, int inputY = 0) : x(inputX), y(inputY) {}
+
+	Coord operator - () const
+	{
+		return Coord({ -x, -y });
+	}
+
+	Coord operator + (const Coord& rhs)
+	{
+		return Coord(x + rhs.x, y + rhs.y);
+	}
+
+	Coord operator - (const Coord& rhs)
+	{
+		return Coord(x - rhs.x, y - rhs.y);
+	}
+
+	void operator += (const Coord& rhs)
+	{
+		x += rhs.x;
+		y += rhs.y;
+	}
+
+	void operator -= (const Coord& rhs)
+	{
+		x -= rhs.x;
+		y -= rhs.y;
+	}
 };
-
-
-inline Coord operator + (Coord& lhs, Coord& rhs)
-{
-	return Coord(lhs.x + rhs.x, lhs.y + rhs.y);
-}
-
-inline Coord operator - (Coord& lhs, Coord& rhs)
-{
-	return Coord(lhs.x - rhs.x, lhs.y - rhs.y);
-}
-
-inline void operator += (Coord& lhs, Coord& rhs)
-{
-	lhs.x += rhs.x;
-	lhs.y += rhs.y;
-}
-
-inline void operator -= (Coord& lhs, Coord& rhs)
-{
-	lhs.x -= rhs.x;
-	lhs.y -= rhs.y;
-}
-
-const Coord COORD_ZERO = { 0, 0 };
-const Coord COORD_UP = { 0, 1 };
-const Coord COORD_RIGHT = { 1, 0 };

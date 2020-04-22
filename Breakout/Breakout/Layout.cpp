@@ -25,7 +25,7 @@ void Layout::OpenFromFile(const string& path)
 	if (!file.is_open())
 	{
 		cout << "Cannot find " << path << endl;
-		exit(-1);
+		return;
 	}
 
 	for (; !file.eof();)
@@ -41,10 +41,35 @@ void Layout::OpenFromFile(const string& path)
 			width = 0;
 		}
 		else
-		{
 			width++;
-		}
+	}
 
+	_contents.push_back('\n');
+
+	_width = width;
+	_height = height;
+}
+
+
+void Layout::LoadFromString(const string& str)
+{
+	int width = 0;
+	int height = 1;
+
+	for (char ch : str)
+	{
+		_contents += ch;
+
+		if (ch == '\n')
+		{
+			if (_width < width)
+				_width = width;
+
+			height++;
+			width = 0;
+		}
+		else
+			width++;
 	}
 
 	_contents.push_back('\n');
@@ -55,9 +80,10 @@ void Layout::OpenFromFile(const string& path)
 
 
 
-
 void Layout::Color(const string& textColor, const string& backColor)
 {
+	Drawed(false);
+
 	_textColor = textColor;
 	_backColor = backColor;
 }
@@ -65,27 +91,40 @@ void Layout::Color(const string& textColor, const string& backColor)
 
 void Layout::Render()
 {
+	if (Drawed() == Visible())
+		return;
+
 	int startX = Position().x - _width / 2;
 	int startY = Position().y - _height / 2;
 
-
-
-	console->setColor(_textColor, _backColor);
-	console->setCursorPosition(startX, startY);
-
-	for (size_t index = 0; index < _contents.size(); index++)
+	if (Drawed()==false && Visible()==true)
 	{
-		for (;; index++)
+		console->setColor(_textColor, _backColor);
+
+		for (size_t index = 0; index < _contents.size(); index++)
 		{
-			if (_contents[index] == '\n')
-			{
-				console->setCursorPosition(startX, (++startY));
-				break;
-			}
+			console->setCursorPosition(startX, startY);
+			startY++;
 
-			cout << _contents[index];
+			for (; _contents[index] != '\n'; index++)
+				cout << _contents[index];
 		}
+
+		Drawed(true);
 	}
+	else
+	{
+		for (size_t index = 0; index < _contents.size(); index++)
+		{
+			console->setCursorPosition(startX, startY);
+			startY++;
+
+			for (; _contents[index] != '\n'; index++)
+					cout << ' ';
+		}
+
+		Drawed(false);
+	}
+
+	
 }
-
-

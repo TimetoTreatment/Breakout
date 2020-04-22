@@ -20,61 +20,43 @@ void GameCore::Release()
 GameCore::GameCore()
 {
 	config = Config::Instance();
-	audioManager = AudioManager::Instance();
-	inputManager = InputManager::Instance();
+	screenManager = ScreenManager::Instance();
 }
 
 GameCore::~GameCore()
 {
 	Config::Release();
-	AudioManager::Release();
-	AssetManager::Release();
-	InputManager::Release();
+	config = nullptr;
+
+	ScreenManager::Release();
+	screenManager = nullptr;
 }
 
 
 void GameCore::MainLoop()
 {
-	IntroScreen intro;
-
-	
-
-	for (timer.Reset(); !config->Exit(); timer.Reset())
+	for (int remainTime; !config->Exit(); timer.Reset())
 	{
-		Sleep(1000 / config->FPS() - timer.GetDeltaTime());
-
-		Input();
 		Update();
 		Render();
-		intro.Render();
 
-
+		if ((remainTime = 1000 / config->FPS() - timer.GetDeltaTime()) > 0)
+			sf::sleep(sf::milliseconds(remainTime));
 	}
-
-
-
 }
 
 
-void GameCore::Input()
-{
-
-}
 
 
 void GameCore::Update()
 {
-
-
-
+	screenManager->Update();
 }
 
 
 void GameCore::Render()
 {
-
-
-
+	screenManager->Render();
 }
 
 

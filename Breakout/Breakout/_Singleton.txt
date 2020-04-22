@@ -8,6 +8,9 @@ AssetManager -> NAME
 private:
 	static AssetManager* s_instance;
 
+	AssetManager();
+	~AssetManager();
+
 public:
 	static AssetManager* Instance();
 	static void Release();
@@ -32,6 +35,15 @@ void AssetManager::Release()
 	s_instance = nullptr;
 }
 
+AssetManager::AssetManager()
+{
+
+}
+
+AssetManager::~AssetManager()
+{
+
+}
 
 ////////////////////////////////////
 

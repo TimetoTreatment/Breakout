@@ -4,9 +4,7 @@
 Timer::Timer()
 {
 	_timer.restart();
-	
 }
-
 
 Timer::~Timer()
 {

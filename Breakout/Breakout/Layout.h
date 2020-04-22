@@ -1,16 +1,16 @@
 #pragma once
 #include <iostream>
 #include <fstream>
-#include "GameEntity.h"
+#include "GameObject.h"
 #include "Console.h"
-#include "Config.h"
+
 
 
 
 using namespace std;
 
 
-class Layout : public GameEntity
+class Layout : public GameObject
 {
 private:
 
@@ -30,15 +30,11 @@ public:
 	Layout();
 	~Layout();
 
-
 	void OpenFromFile(const string& path);
-
-
+	void LoadFromString(const string& str);
 	void Color(const string& textColor = "default", const string& backColor = "default");
-
 	void Render();
-
-
+	void Erase();
 
 
 

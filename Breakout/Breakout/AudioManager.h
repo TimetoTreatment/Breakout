@@ -1,8 +1,8 @@
 #pragma once
 #include <SFML/Audio.hpp>
+#include <array>
 #include "AssetManager.h"
 #include "Config.h"
-#include <array>
 
 constexpr int MAX_CHANNEL = 128;
 
@@ -16,6 +16,8 @@ public:
 	static void Release();
 
 
+	string _currentMusicFile;
+
 private:
 
 	AudioManager();
@@ -24,14 +26,14 @@ private:
 	AssetManager* assetManager = AssetManager::Instance();
 	array<sf::Sound, MAX_CHANNEL> _channels;
 
+	
+
 public:
 
 	void PlayMusic(const string& filename);
-	void PauseMusic(string&& filename);
-	void StopMusic(string&& filename);
+	void PauseMusic();
+	void StopMusic();
 	void PlaySFX(const string& filename);
 
-
-
+	bool isMusicPlayed();
 };
-
