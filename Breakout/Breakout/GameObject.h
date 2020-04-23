@@ -5,15 +5,12 @@
 class GameObject
 {
 private:
-
-
 	bool _active;
 	bool _visible;
 	bool _drawed;
 	GameObject* _parent;
 	Coord _position;
-
-
+	Coord _direction;
 
 public:
 	GameObject(Coord position = { 0, 0 });
@@ -21,6 +18,9 @@ public:
 
 	void Position(Coord position);
 	Coord& Position();
+
+	void Direction(Coord direction);
+	Coord& Direction();
 
 	void Active(bool active);
 	bool Active();

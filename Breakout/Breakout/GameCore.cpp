@@ -1,5 +1,9 @@
 #include "GameCore.h"
 #include "IntroScreen.h"
+#include "AssetManager.h"
+#include "InputManager.h"
+#include "LayoutManager.h"
+#include "ScreenManager.h"
 
 GameCore* GameCore::s_instance = nullptr;
 
@@ -21,6 +25,12 @@ GameCore::GameCore()
 {
 	config = Config::Instance();
 	screenManager = ScreenManager::Instance();
+	AssetManager::Instance();
+
+
+
+
+
 }
 
 GameCore::~GameCore()
@@ -44,8 +54,6 @@ void GameCore::MainLoop()
 			sf::sleep(sf::milliseconds(remainTime));
 	}
 }
-
-
 
 
 void GameCore::Update()

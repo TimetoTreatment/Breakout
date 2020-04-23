@@ -6,15 +6,17 @@
 class IntroScreen : public GameObject
 {
 private:
+	Config* config;
+	LayoutManager* layoutManager;
+
+	Timer* _screenTimer;
 	Layout* _teamLogo;
 	Layout* _teamBoard;
 	Layout* _teamMember;
 	Layout* _gameLogo;
 	Layout* _startPrompt;
-	LayoutManager* layoutManager = LayoutManager::Instance();
-	Config* config = Config::Instance();
-	Timer* layoutTimer;
-	Timer* colorTimer;
+	string _promptColor;
+	Timer* _promptTimer;
 
 public:
 	IntroScreen();

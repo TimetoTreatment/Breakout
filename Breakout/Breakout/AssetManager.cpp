@@ -27,8 +27,6 @@ AssetManager::~AssetManager()
 }
 
 
-
-
 unique_ptr<Layout>& AssetManager::GetLayout(const string& fileOrString, const Coord& position, const string& textColor, const string& backColor)
 {
 	string path = "Assets/layout/" + fileOrString;
@@ -45,8 +43,6 @@ unique_ptr<Layout>& AssetManager::GetLayout(const string& fileOrString, const Co
 		else
 			_layout[key]->LoadFromString(fileOrString);
 	}
-
-
 
 	return _layout[key];
 }

@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Config.h"
 #include "Timer.h"
 #include "ScreenManager.h"
@@ -19,13 +18,11 @@ private:
 	Timer timer;
 	ScreenManager* screenManager;
 
-
 public:
 	GameCore();
 	~GameCore();
 
 	void MainLoop();
-	void TimeCheck();
 	void Update();
 	void Render();
 };

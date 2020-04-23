@@ -3,40 +3,30 @@
 #include "AudioManager.h"
 #include "Timer.h"
 
-class MainmenuScreen : public GameObject
+class MainScreen : public GameObject
 {
 private:
-	LayoutManager* layoutManager = LayoutManager::Instance();
+	Config* config;
+	LayoutManager* layoutManager;
+	Timer* screenTimer;
 
+	Layout* _gameLogo;
+	Layout* _brickwall;
 	Layout* _start;
 	Layout* _option;
 	Layout* _exit;
 
-	Config* config = Config::Instance();
-	Timer* timer = new Timer;
+	Layout* _selector;
+
+
+	
 
 
 public:
+	MainScreen();
+	~MainScreen();
 
-
-	void Update()
-	{
-
-
-
-	}
-
-	void Render()
-	{
-
-
-
-
-	}
-
-
-
-
-
+	void Update();
+	void Render();
 };
 

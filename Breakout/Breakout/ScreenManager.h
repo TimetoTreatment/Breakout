@@ -1,7 +1,7 @@
 #pragma once
-#include "IntroScreen.h"
 #include "InputManager.h"
-
+#include "IntroScreen.h"
+#include "MainScreen.h"
 
 
 class ScreenManager
@@ -22,6 +22,7 @@ private:
 
 	Timer* timer;
 	IntroScreen* _introScreen;
+	MainScreen* _mainScreen;
 
 	GameObject* _screen;
 	GameObject* _nextScreen;

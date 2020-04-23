@@ -19,7 +19,6 @@ GameObject::~GameObject()
 }
 
 
-
 void GameObject::Position(Coord position)
 {
 	_position += position;
@@ -28,6 +27,17 @@ void GameObject::Position(Coord position)
 Coord& GameObject::Position()
 {
 	return _position;
+}
+
+
+void GameObject::Direction(Coord direction)
+{
+	_direction = direction;
+}
+
+Coord& GameObject::Direction()
+{
+	return _direction;
 }
 
 

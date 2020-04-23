@@ -24,6 +24,7 @@ ScreenManager::ScreenManager()
 {
 	inputManager = InputManager::Instance();
 	_introScreen = new IntroScreen;
+	_mainScreen = new MainScreen;
 
 
 
@@ -63,14 +64,17 @@ void ScreenManager::Update()
 		{
 			_screen->Active(false);
 			_screen->Update();
-			_nextScreen = nullptr;
+			_nextScreen = _mainScreen;
+			_nextScreen->Active(true);
 		}
 	}
 
-	else if (_screen == nullptr)
+	else if (_screen == _mainScreen)
 	{
-		if (inputManager->KeyPressed(Keyboard::Escape))
+		if (inputManager->KeyPressed(Keyboard::Enter))
 		{
+			_screen->Active(false);
+			_screen->Update();
 			_nextScreen = _introScreen;
 			_nextScreen->Active(true);
 		}
