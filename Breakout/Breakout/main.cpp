@@ -1,9 +1,9 @@
-#include "GameCore.h"
+#include "GameMain.h"
 
 int main(void)
 {
-	GameCore::Instance()->MainLoop();
-	GameCore::Release();
+	GameMain::Instance()->MainLoop();
+	GameMain::Release();
 
 	return 0;
 }

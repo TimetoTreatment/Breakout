@@ -10,6 +10,8 @@ AudioManager::AudioManager()
 {
 	assetManager = AssetManager::Instance();
 	_channel = _channels.begin();
+
+	
 }
 
 

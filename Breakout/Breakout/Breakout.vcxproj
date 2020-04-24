@@ -147,9 +147,11 @@
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="AudioManager.cpp" />
-    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="PlayScreen.cpp" />
+    <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="Status.cpp" />
     <ClCompile Include="Console.cpp" />
-    <ClCompile Include="GameCore.cpp" />
+    <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -159,15 +161,17 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="Random.cpp" />
-    <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TutorialScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="AudioManager.h" />
-    <ClInclude Include="Config.h" />
+    <ClInclude Include="PlayScreen.h" />
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="Status.h" />
     <ClInclude Include="Console.h" />
-    <ClInclude Include="GameCore.h" />
+    <ClInclude Include="GameMain.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="InputManager.h" />
@@ -177,11 +181,11 @@
     <ClInclude Include="LayoutManager.h" />
     <ClInclude Include="MainScreen.h" />
     <ClInclude Include="Random.h" />
-    <ClInclude Include="ScreenManager.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="TutorialScreen.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\music\mainmenu.ogg" />
+    <None Include="Assets\music\intro.ogg" />
     <None Include="Assets\sfx\laugh0.ogg" />
     <None Include="Assets\sfx\laugh1.ogg" />
     <None Include="Assets\sfx\laugh2.ogg" />

@@ -3,19 +3,18 @@
 
 MainScreen::MainScreen()
 {
-	config = Config::Instance();
-	layoutManager = LayoutManager::Instance();
+	mScreenTimer = new Timer;
+	mScreenTimer->SetInterval(500);
 
-	screenTimer = new Timer;
-	screenTimer->SetInterval(500);
+	mGameLogo = mLayoutManager->New("intro_gamelogo.txt", { mStatus->Width() / 2, 8 }, "white");
+	mBrickwall = mLayoutManager->New("mainmenu_brickwall.txt", { mStatus->Width() / 2, 30 }, "yellow");
+	mStart = mLayoutManager->New("Start CodeSlayer", { mStatus->Width() / 2, 27 }, "white");
+	mOption = mLayoutManager->New("Option", { mStatus->Width() / 2, 30 }, "white");
+	mExit = mLayoutManager->New("Exit", { mStatus->Width() / 2, 33 }, "white");
 
-	_gameLogo = layoutManager->New("intro_gamelogo.txt", { config->Width() / 2, 8 }, "white");
-	_brickwall = layoutManager->New("mainmenu_brickwall.txt", { config->Width() / 2, 30 }, "yellow");
-	_start = layoutManager->New("Start CodeSlayer", { config->Width() / 2, 27 }, "white");
-	_option = layoutManager->New("Option", { config->Width() / 2, 30 }, "white");
-	_exit = layoutManager->New("Exit", { config->Width() / 2, 33 }, "white");
+	mSelector = mStart;
 
-	_selector = _start;
+
 }
 
 
@@ -25,7 +24,7 @@ MainScreen::~MainScreen()
 
 
 
-	delete screenTimer;
+	delete mScreenTimer;
 }
 
 
@@ -37,13 +36,13 @@ void MainScreen::Update()
 {
 	if (this->Active())
 	{
-		_gameLogo->Visible(true);
-		_brickwall->Visible(true);
-		_start->Visible(true);
-		_option->Visible(true);
-		_exit->Visible(true);
+		mGameLogo->Visible(true);
+		mBrickwall->Visible(true);
+		mStart->Visible(true);
+		mOption->Visible(true);
+		mExit->Visible(true);
 
-		if (_selector == _start)
+		if (mSelector == mStart)
 		{
 
 
@@ -52,7 +51,7 @@ void MainScreen::Update()
 
 
 		}
-		else if (_selector == _option)
+		else if (mSelector == mOption)
 		{
 
 
@@ -81,22 +80,22 @@ void MainScreen::Update()
 	}
 	else
 	{
-		_gameLogo->Visible(false);
-		_brickwall->Visible(false);
-		_start->Visible(false);
-		_option->Visible(false);
-		_exit->Visible(false);
+		mGameLogo->Visible(false);
+		mBrickwall->Visible(false);
+		mStart->Visible(false);
+		mOption->Visible(false);
+		mExit->Visible(false);
 	}
 }
 
 
 void MainScreen::Render()
 {
-	_gameLogo->Render();
-	_brickwall->Render();
-	_selector->Render();
-	_start->Render();
-	_option->Render();
-	_exit->Render();
+	mGameLogo->Render();
+	mBrickwall->Render();
+	mSelector->Render();
+	mStart->Render();
+	mOption->Render();
+	mExit->Render();
 
 }

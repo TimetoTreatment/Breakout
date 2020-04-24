@@ -2,24 +2,22 @@
 #include "LayoutManager.h"
 #include "AudioManager.h"
 #include "Timer.h"
+#include "Screen.h"
 
-class MainScreen : public GameObject
+class MainScreen : public Screen
 {
 private:
-	Config* config;
-	LayoutManager* layoutManager;
-	Timer* screenTimer;
+	Timer* mScreenTimer;
 
-	Layout* _gameLogo;
-	Layout* _brickwall;
-	Layout* _start;
-	Layout* _option;
-	Layout* _exit;
+	Layout* mGameLogo;
+	Layout* mBrickwall;
+	Layout* mStart;
+	Layout* mOption;
+	Layout* mExit;
 
-	Layout* _selector;
+	Layout* mSelector;
 
 
-	
 
 
 public:

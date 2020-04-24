@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="리소스 파일">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -22,20 +18,24 @@
     <Filter Include="리소스 파일\music">
       <UniqueIdentifier>{c85d666a-7e39-44c0-869c-ad3029ed5ade}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Manager">
-      <UniqueIdentifier>{76701d80-73a4-4d7c-930b-3be06cf1fd83}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Manager">
       <UniqueIdentifier>{27e8d514-336e-475f-97e8-c399444cf72d}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\Entity">
       <UniqueIdentifier>{d8b312b0-c8e1-4b6d-ad10-0a5c26935f30}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Entity">
-      <UniqueIdentifier>{e32ff979-9a0a-4902-832f-576daf850c2b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Game">
       <UniqueIdentifier>{525c72f3-48ac-48fa-9bc8-ee55b74eda14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Manager">
+      <UniqueIdentifier>{76701d80-73a4-4d7c-930b-3be06cf1fd83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Entity">
+      <UniqueIdentifier>{e32ff979-9a0a-4902-832f-576daf850c2b}</UniqueIdentifier>
     </Filter>
     <Filter Include="헤더 파일\Game">
       <UniqueIdentifier>{b62577a8-326c-4472-a292-1dd2c9e56441}</UniqueIdentifier>
@@ -57,9 +57,6 @@
     <ClCompile Include="AssetManager.cpp">
       <Filter>소스 파일\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="GameCore.cpp">
-      <Filter>소스 파일\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Layout.cpp">
       <Filter>소스 파일\Entity</Filter>
     </ClCompile>
@@ -72,14 +69,8 @@
     <ClCompile Include="Console.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Config.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Random.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ScreenManager.cpp">
-      <Filter>소스 파일\Manager</Filter>
     </ClCompile>
     <ClCompile Include="MainScreen.cpp">
       <Filter>소스 파일\Game</Filter>
@@ -90,15 +81,27 @@
     <ClCompile Include="LayoutManager.cpp">
       <Filter>소스 파일\Manager</Filter>
     </ClCompile>
+    <ClCompile Include="GameMain.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Status.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>소스 파일\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScreen.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialScreen.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CommonType.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Config.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="AssetManager.h">
@@ -116,9 +119,6 @@
     <ClInclude Include="GameEntity.h">
       <Filter>헤더 파일\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="GameCore.h">
-      <Filter>헤더 파일\Game</Filter>
-    </ClInclude>
     <ClInclude Include="IntroScreen.h">
       <Filter>헤더 파일\Game</Filter>
     </ClInclude>
@@ -131,14 +131,26 @@
     <ClInclude Include="Random.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ScreenManager.h">
-      <Filter>헤더 파일\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="MainScreen.h">
       <Filter>헤더 파일\Game</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>헤더 파일\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Status.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>헤더 파일\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScreen.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialScreen.h">
+      <Filter>헤더 파일\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -163,7 +175,7 @@
     <None Include="Assets\sfx\laugh0.ogg">
       <Filter>리소스 파일\sound</Filter>
     </None>
-    <None Include="Assets\music\mainmenu.ogg">
+    <None Include="Assets\music\intro.ogg">
       <Filter>리소스 파일\music</Filter>
     </None>
   </ItemGroup>

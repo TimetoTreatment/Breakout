@@ -3,33 +3,29 @@
 
 IntroScreen::IntroScreen()
 {
-	config = Config::Instance();
-	layoutManager = LayoutManager::Instance();
+	mScreenTimer = new Timer;
+	mPromptTimer = new Timer;
 
-	_promptTimer = new Timer;
-	_screenTimer = new Timer;
+	mTeamLogo = mLayoutManager->New("intro_teamLogo.txt", { mStatus->Width() / 2, 8 }, "white");
+	mTeamBoard = mLayoutManager->New("intro_teamBoard.txt", { mStatus->Width() / 2, 18 }, "white");
+	mTeamMember = mLayoutManager->New("intro_teamMember.txt", { mStatus->Width() / 2, 18 }, "white");
+	mGameLogo = mLayoutManager->New("intro_gameLogo.txt", { mStatus->Width() / 2, 35 }, "blue");
+	mStartPrompt = mLayoutManager->New("* Press Enter to Start *", { mStatus->Width() / 2 + 1, 18 }, "black");
 
-	_teamLogo = layoutManager->New("intro_teamLogo.txt", { config->Width() / 2, 8 }, "white");
-	_teamBoard = layoutManager->New("intro_teamBoard.txt", { config->Width() / 2, 18 }, "white");
-	_teamMember = layoutManager->New("intro_teamMember.txt", { config->Width() / 2, 18 }, "white");
-	_gameLogo = layoutManager->New("intro_gameLogo.txt", { config->Width() / 2, 35 }, "blue");
-	_startPrompt = layoutManager->New("* Press Enter to Start *", { config->Width() / 2 + 1, 18 }, "black");
+	mTeamLogo->Visible(false);
+	mTeamBoard->Visible(false);
+	mTeamMember->Visible(false);
+	mGameLogo->Visible(false);
+	mStartPrompt->Visible(false);
 
-	_teamLogo->Visible(false);
-	_teamBoard->Visible(false);
-	_teamMember->Visible(false);
-	_gameLogo->Visible(false);
-	_startPrompt->Visible(false);
-
-	_promptTimer->SetInterval(238);
-	_promptColor = "blue";
+	mPromptTimer->SetInterval(238);
+	mPromptColor = "blue";
 }
 
 
 IntroScreen::~IntroScreen()
 {
-	delete _screenTimer;
-	delete _promptTimer;
+	delete mPromptTimer;
 }
 
 
@@ -37,41 +33,36 @@ void IntroScreen::Update()
 {
 	if (this->Active() == false)
 	{
-		_teamLogo->Visible(false);
-		_teamBoard->Visible(false);
-		_teamMember->Visible(false);
-		_gameLogo->Visible(false);
-		_startPrompt->Visible(false);
+		mTeamLogo->Visible(false);
+		mTeamBoard->Visible(false);
+		mTeamMember->Visible(false);
+		mGameLogo->Visible(false);
+		mStartPrompt->Visible(false);
 	}
 	else
 	{
-		if (_screenTimer->GetDeltaTime() > 1000)
-		{
-			AudioManager::Instance()->PlayMusic("mainmenu.ogg");
+		mTeamLogo->Visible(true);
+		mTeamBoard->Visible(true);
+		mTeamMember->Visible(true);
 
-			_teamLogo->Visible(true);
-			_teamBoard->Visible(true);
-			_teamMember->Visible(true);
+		if (mScreenTimer->GetDeltaTime() > 5000)
+		{
+			mGameLogo->Visible(true);
 		}
 
-		if (_screenTimer->GetDeltaTime() > 5000)
+		if (mScreenTimer->GetDeltaTime() > 9000)
 		{
-			_gameLogo->Visible(true);
-		}
+			mTeamMember->Visible(false);
+			mStartPrompt->Visible(true);
 
-		if (_screenTimer->GetDeltaTime() > 9000)
-		{
-			_teamMember->Visible(false);
-			_startPrompt->Visible(true);
-
-			if (_promptTimer->Trigger())
+			if (mPromptTimer->Trigger())
 			{
-				_startPrompt->Color(_promptColor);
+				mStartPrompt->Color(mPromptColor);
 
-				if (_promptColor == "blue")
-					_promptColor = "white";
+				if (mPromptColor == "blue")
+					mPromptColor = "white";
 				else
-					_promptColor = "blue";
+					mPromptColor = "blue";
 			}
 		}
 	}
@@ -80,9 +71,9 @@ void IntroScreen::Update()
 
 void IntroScreen::Render()
 {
-	_teamLogo->Render();
-	_teamBoard->Render();
-	_teamMember->Render();
-	_gameLogo->Render();
-	_startPrompt->Render();
+	mTeamLogo->Render();
+	mTeamBoard->Render();
+	mTeamMember->Render();
+	mGameLogo->Render();
+	mStartPrompt->Render();
 }

@@ -66,11 +66,11 @@ unique_ptr<SoundBuffer>& AssetManager::GetSFX(const string& filename)
 {
 	string path = "assets/sfx/" + filename;
 
-	if (_sfx[path] == nullptr)
+	if (sfx[path] == nullptr)
 	{
-		_sfx[path] = make_unique<SoundBuffer>();
-		_sfx[path]->loadFromFile(path);
+		sfx[path] = make_unique<SoundBuffer>();
+		sfx[path]->loadFromFile(path);
 	}
 
-	return _sfx[path];
+	return sfx[path];
 }

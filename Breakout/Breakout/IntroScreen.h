@@ -2,21 +2,22 @@
 #include "LayoutManager.h"
 #include "AudioManager.h"
 #include "Timer.h"
+#include "Screen.h"
 
-class IntroScreen : public GameObject
+class IntroScreen : public Screen
 {
 private:
-	Config* config;
-	LayoutManager* layoutManager;
+	Timer* mScreenTimer;
+	Timer* mPromptTimer;
 
-	Timer* _screenTimer;
-	Layout* _teamLogo;
-	Layout* _teamBoard;
-	Layout* _teamMember;
-	Layout* _gameLogo;
-	Layout* _startPrompt;
-	string _promptColor;
-	Timer* _promptTimer;
+	Layout* mTeamLogo;
+	Layout* mTeamBoard;
+	Layout* mTeamMember;
+	Layout* mGameLogo;
+	Layout* mStartPrompt;
+
+	string mPromptColor;
+
 
 public:
 	IntroScreen();

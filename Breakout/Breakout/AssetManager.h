@@ -23,7 +23,7 @@ private:
 	~AssetManager();
 
 	unordered_map<string, unique_ptr<Music>> _music;
-	unordered_map<string, unique_ptr<SoundBuffer>> _sfx;
+	unordered_map<string, unique_ptr<SoundBuffer>> sfx;
 	unordered_map<string, unique_ptr<Layout>> _layout;
 
 public:

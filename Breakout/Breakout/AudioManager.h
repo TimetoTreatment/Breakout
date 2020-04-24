@@ -2,7 +2,7 @@
 #include <SFML/Audio.hpp>
 #include <array>
 #include "AssetManager.h"
-#include "Config.h"
+#include "Status.h"
 
 constexpr int MAX_CHANNEL = 128;
 
