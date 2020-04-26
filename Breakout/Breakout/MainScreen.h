@@ -11,12 +11,18 @@ private:
 
 	Layout* mGameLogo;
 	Layout* mBrickwall;
-	Layout* mStart;
-	Layout* mOption;
-	Layout* mExit;
+
+	Layout* mStartMenu;
+	Layout* mOptionMenu;
+	Layout* mExitMenu;
 
 	Layout* mSelector;
 
+
+
+	int mSelectMenu;
+	int mPrevSelectMenu;
+	bool mMoveNextScreen;
 
 
 
@@ -26,5 +32,7 @@ public:
 
 	void Update();
 	void Render();
+
+	int NextScreen();
 };
 

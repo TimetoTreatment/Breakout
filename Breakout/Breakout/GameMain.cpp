@@ -20,13 +20,15 @@ void GameMain::Release()
 GameMain::GameMain()
 {
 	mStatus = Status::Instance();
+	mConsole = Console::Instance();
 	mInputManager = InputManager::Instance();
+	mLayoutManager = LayoutManager::Instance();
 	mAudioManager = AudioManager::Instance();
+	mAssetManager = AssetManager::Instance();
 
 	mFrameTimer = new Timer;
-	mMainTimer = new Timer;
-	mScreenTimer = new Timer;
-	mScreenTimer->SetInterval(500);
+	mScreenCooldownTimer = new Timer;
+	mScreenCooldownTimer->SetInterval(500);
 
 	mIntroScreen = new IntroScreen;
 	mMainScreen = new MainScreen;
@@ -37,17 +39,22 @@ GameMain::GameMain()
 
 	mRandomMusic = "music1.ogg";
 	mMusicNum = 1;
-	mMusicNumMax = 1;
+	mMusicNumMax = 7;
 }
 
 GameMain::~GameMain()
 {
 	Status::Release();
-
-	delete mIntroScreen;
+	InputManager::Release();
+	AudioManager::Release();
+	AssetManager::Release();
 
 	delete mFrameTimer;
-	mFrameTimer = nullptr;
+	delete mScreenCooldownTimer;
+
+	delete mIntroScreen;
+	delete mMainScreen;
+	delete mPlayScreen;
 }
 
 
@@ -71,39 +78,40 @@ void GameMain::Update()
 {
 	mCurrentScreen = mNextScreen;
 
-	if (mCurrentScreen == mIntroScreen)
+	if (mIntroScreen == mCurrentScreen)
 	{
-		if (mInputManager->KeyPressed(sf::Keyboard::Enter) && mScreenTimer->Trigger())
+		if (mIntroScreen->NextScreen() != 0)
 		{
-			mCurrentScreen->Active(false);
+			mIntroScreen->Active(false);
 			mNextScreen = mMainScreen;
 			mNextScreen->Active(true);
 		}
 	}
-	else if (mCurrentScreen == mMainScreen)
+	else if (mMainScreen == mCurrentScreen)
 	{
-		if (mInputManager->KeyPressed(sf::Keyboard::Enter) && mScreenTimer->Trigger())
+		if (mMainScreen->NextScreen() != 0)
 		{
-			mCurrentScreen->Active(false);
+			mMainScreen->Active(false);
 			mNextScreen = mPlayScreen;
 			mNextScreen->Active(true);
 		}
 	}
-	else if (mCurrentScreen == mPlayScreen)
+	else if (mPlayScreen == mCurrentScreen)
 	{
-		if (mInputManager->KeyPressed(sf::Keyboard::Escape) && mScreenTimer->Trigger())
+		if (mPlayScreen->NextScreen() != 0)
 		{
-
-
-
-
-
+			mPlayScreen->Active(false);
+			mNextScreen = mMainScreen;
+			mNextScreen->Active(true);
 		}
 	}
 
 	mCurrentScreen->Update();
-	
 
+
+
+	//////////////////////////////
+	//////////////////////////////
 
 
 	if (!mAudioManager->isMusicPlayed())
@@ -124,6 +132,9 @@ void GameMain::Update()
 		mAudioManager->PlayMusic(mRandomMusic);
 		mMusicNum = rand() % mMusicNumMax;
 	}
+
+	mInputManager->Update();
+	mConsole->setCursorPosition(mStatus->Width() - 1, mStatus->Height());
 }
 
 

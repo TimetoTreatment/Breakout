@@ -9,9 +9,7 @@ AudioManager* AudioManager::s_instance = nullptr;
 AudioManager::AudioManager()
 {
 	assetManager = AssetManager::Instance();
-	_channel = _channels.begin();
-
-	
+	mChannel = mChannels.begin();
 }
 
 
@@ -68,11 +66,11 @@ void AudioManager::StopMusic()
 
 void AudioManager::PlaySFX(const string& filename)
 {
-	if ((++_channel) == _channels.end())
-		_channel = _channels.begin();
+	if ((++mChannel) == mChannels.end())
+		mChannel = mChannels.begin();
 
-	_channel->setBuffer(*assetManager->GetSFX(filename));
-	_channel->play();
+	mChannel->setBuffer(*assetManager->GetSFX(filename));
+	mChannel->play();
 }
 
 

@@ -21,5 +21,5 @@ Status::Status()
 	mFPS = 60;
 	mWidth = 130;
 	mHeight = 45;
-	mExit = false;
+	mExitMenu = false;
 }

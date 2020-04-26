@@ -13,7 +13,7 @@ private:
 	int mFPS;
 	int mWidth;
 	int mHeight;
-	bool mExit;
+	bool mExitMenu;
 
 
 public:
@@ -36,12 +36,12 @@ public:
 
 	bool Exit()
 	{
-		return mExit;
+		return mExitMenu;
 	}
 
 	void Exit(bool exit)
 	{
-		mExit = exit;
+		mExitMenu = exit;
 	}
 
 

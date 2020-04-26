@@ -7,7 +7,7 @@ private:
 	Timer* mScreenTimer;
 
 
-	Layout* mTeamLogo;
+	Layout* mScreenLayout;
 
 
 	string mPromptColor;

@@ -24,8 +24,8 @@ private:
 	~AudioManager();
 
 	AssetManager* assetManager;
-	array<sf::Sound, MAX_CHANNEL> _channels;
-	array<sf::Sound, MAX_CHANNEL>::iterator _channel;
+	array<sf::Sound, MAX_CHANNEL> mChannels;
+	array<sf::Sound, MAX_CHANNEL>::iterator mChannel;
 	
 
 public:

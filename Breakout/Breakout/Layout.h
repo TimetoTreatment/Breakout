@@ -14,14 +14,14 @@ class Layout : public GameObject
 {
 private:
 
-	string _contents;
-	string _textColor;
-	string _backColor;
+	string mContents;
+	string mTextColor;
+	string mBackColor;
 
-	int _width;
-	int _height;
+	int mWidth;
+	int mHeight;
 
-	Console* console = Console::Instance();
+	Console* mConsole = Console::Instance();
 
 
 

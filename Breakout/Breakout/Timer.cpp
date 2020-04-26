@@ -3,28 +3,39 @@
 
 Timer::Timer()
 {
-	_timer.restart();
-	_interval = 0;
-	_lastTrigger = 0;
+	mTimer.restart();
+
+	mTriggeredOnce = false;
+	mIntervalTime = 0;
+	mTriggerCount = 0;
+	mNextTriggerTime = 0;
 }
 
 Timer::~Timer()
 {
-	
+
 }
 
 
-void Timer::SetInterval(int interval)
+void Timer::SetInterval(unsigned int intervalTime)
 {
-	_interval = interval;
+	mIntervalTime = intervalTime;
 }
 
 
 bool Timer::Trigger()
 {
-	if (GetDeltaTime() - _lastTrigger >= _interval)
+	if (GetDeltaTime() >= mNextTriggerTime)
 	{
-		_lastTrigger = GetDeltaTime();
+		if (mTriggeredOnce == false)
+		{
+			mTimer.restart();
+			mTriggeredOnce = true;
+		}
+
+		mTriggerCount++;
+		mNextTriggerTime = mIntervalTime * mTriggerCount;
+
 		return true;
 	}
 
@@ -32,13 +43,19 @@ bool Timer::Trigger()
 }
 
 
-int Timer::GetDeltaTime()
+unsigned int Timer::TriggerCount() const
 {
-	return _timer.getElapsedTime().asMilliseconds();
+	return mTriggerCount;
+}
+
+
+unsigned int Timer::GetDeltaTime() const
+{
+	return mTimer.getElapsedTime().asMilliseconds();
 }
 
 
 void Timer::Reset()
 {
-	_timer.restart();
+	mTimer.restart();
 }

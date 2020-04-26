@@ -2,8 +2,11 @@
 
 Layout::Layout()
 {
-	_width = 0;
-	_height = 0;
+	mTextColor = "default";
+	mBackColor = "default";
+
+	mWidth = 0;
+	mHeight = 0;
 }
 
 
@@ -30,12 +33,12 @@ void Layout::OpenFromFile(const string& path)
 
 	for (; !file.eof();)
 	{
-		_contents += file.get();
+		mContents += file.get();
 
-		if (_contents.back() == '\n')
+		if (mContents.back() == '\n')
 		{
-			if (_width < width)
-				_width = width;
+			if (mWidth < width)
+				mWidth = width;
 
 			height++;
 			width = 0;
@@ -44,10 +47,10 @@ void Layout::OpenFromFile(const string& path)
 			width++;
 	}
 
-	_contents.push_back('\n');
+	mContents.push_back('\n');
 
-	_width = width;
-	_height = height;
+	mWidth = width;
+	mHeight = height;
 }
 
 
@@ -58,12 +61,12 @@ void Layout::LoadFromString(const string& str)
 
 	for (char ch : str)
 	{
-		_contents += ch;
+		mContents += ch;
 
 		if (ch == '\n')
 		{
-			if (_width < width)
-				_width = width;
+			if (mWidth < width)
+				mWidth = width;
 
 			height++;
 			width = 0;
@@ -72,20 +75,21 @@ void Layout::LoadFromString(const string& str)
 			width++;
 	}
 
-	_contents.push_back('\n');
+	mContents.push_back('\n');
 
-	_width = width;
-	_height = height;
+	mWidth = width;
+	mHeight = height;
 }
 
 
 
 void Layout::Color(const string& textColor, const string& backColor)
 {
-	Drawed(false);
+	if (mTextColor != textColor || mBackColor != backColor)
+		Drawed(false);
 
-	_textColor = textColor;
-	_backColor = backColor;
+	mTextColor = textColor;
+	mBackColor = backColor;
 }
 
 
@@ -94,37 +98,37 @@ void Layout::Render()
 	if (Drawed() == Visible())
 		return;
 
-	int startX = Position().x - _width / 2;
-	int startY = Position().y - _height / 2;
+	int startX = Position().x - mWidth / 2;
+	int startY = Position().y - mHeight / 2;
 
-	if (Drawed()==false && Visible()==true)
+	if (Drawed() == false && Visible() == true)
 	{
-		console->setColor(_textColor, _backColor);
+		mConsole->setColor(mTextColor, mBackColor);
 
-		for (size_t index = 0; index < _contents.size(); index++)
+		for (size_t index = 0; index < mContents.size(); index++)
 		{
-			console->setCursorPosition(startX, startY);
+			mConsole->setCursorPosition(startX, startY);
 			startY++;
 
-			for (; _contents[index] != '\n'; index++)
-				cout << _contents[index];
+			for (; mContents[index] != '\n'; index++)
+				cout << mContents[index];
 		}
 
 		Drawed(true);
 	}
 	else
 	{
-		for (size_t index = 0; index < _contents.size(); index++)
+		for (size_t index = 0; index < mContents.size(); index++)
 		{
-			console->setCursorPosition(startX, startY);
+			mConsole->setCursorPosition(startX, startY);
 			startY++;
 
-			for (; _contents[index] != '\n'; index++)
-					cout << ' ';
+			for (; mContents[index] != '\n'; index++)
+				cout << ' ';
 		}
 
 		Drawed(false);
 	}
 
-	
+
 }

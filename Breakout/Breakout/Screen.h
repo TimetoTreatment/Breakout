@@ -2,6 +2,7 @@
 #include "Status.h"
 #include "LayoutManager.h"
 #include "AudioManager.h"
+#include "InputManager.h"
 #include "Timer.h"
 
 class Screen : public GameObject
@@ -10,6 +11,7 @@ protected:
 
 	Status* mStatus;
 	LayoutManager* mLayoutManager;
+	InputManager* mInputManager;
 
 
 public:
@@ -18,11 +20,6 @@ public:
 	~Screen();
 
 
-
-	//virtual string HandleNextMenu()
-	//{
-
-	//}
 
 
 
@@ -37,7 +34,10 @@ public:
 	}
 
 
-
+	virtual int NextScreen()
+	{
+		return 0;
+	}
 
 
 

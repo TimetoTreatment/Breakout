@@ -5,16 +5,20 @@
 class Timer
 {
 private:
-	sf::Clock _timer;
-	unsigned int _interval;
-	unsigned int _lastTrigger;
+	sf::Clock mTimer;
+
+	bool mTriggeredOnce;
+	unsigned int mIntervalTime;
+	unsigned int mTriggerCount;
+	unsigned int mNextTriggerTime;
 
 public:
 	Timer();
 	~Timer();
 
-	void SetInterval(int interval);
+	void SetInterval(unsigned int intervalTime);
 	bool Trigger();
-	int GetDeltaTime();
+	unsigned int TriggerCount() const;
+	unsigned int GetDeltaTime() const;
 	void Reset();
 };

@@ -201,5 +201,8 @@
     <Text Include="Assets\layout\mainmenu_selector.txt">
       <Filter>리소스 파일\layout</Filter>
     </Text>
+    <Text Include="Assets\layout\play_layout.txt">
+      <Filter>리소스 파일\layout</Filter>
+    </Text>
   </ItemGroup>
 </Project>

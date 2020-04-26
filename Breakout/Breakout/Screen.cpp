@@ -5,7 +5,7 @@ Screen::Screen()
 {
 	mStatus = Status::Instance();
 	mLayoutManager = LayoutManager::Instance();
-
+	mInputManager = InputManager::Instance();
 
 
 }

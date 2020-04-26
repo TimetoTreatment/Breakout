@@ -3,18 +3,19 @@
 #include "AudioManager.h"
 #include "Timer.h"
 #include "Screen.h"
+#
 
 class IntroScreen : public Screen
 {
 private:
-	Timer* mScreenTimer;
+	Timer* mMainTimer;
 	Timer* mPromptTimer;
 
 	Layout* mTeamLogo;
 	Layout* mTeamBoard;
 	Layout* mTeamMember;
 	Layout* mGameLogo;
-	Layout* mStartPrompt;
+	Layout* mStartMenuPrompt;
 
 	string mPromptColor;
 
@@ -25,4 +26,6 @@ public:
 
 	void Update();
 	void Render();
+
+	int NextScreen();
 };

@@ -1,10 +1,11 @@
 #pragma once
 #include "Status.h"
 #include "Timer.h"
-#include "IntroScreen.h"
+#include "Console.h"
 #include "AssetManager.h"
 #include "InputManager.h"
 #include "LayoutManager.h"
+#include "IntroScreen.h"
 #include "MainScreen.h"
 #include "PlayScreen.h"
 
@@ -20,19 +21,21 @@ public:
 
 private:
 	Status* mStatus;
+	Console* mConsole;
 	InputManager* mInputManager;
+	LayoutManager* mLayoutManager;
 	AudioManager* mAudioManager;
+	AssetManager* mAssetManager;
 
 	Timer* mFrameTimer;
-	Timer* mMainTimer;
-	Timer* mScreenTimer;
+	Timer* mScreenCooldownTimer;
 
 	IntroScreen* mIntroScreen;
 	MainScreen* mMainScreen;
+	PlayScreen* mPlayScreen;
 
 	Screen* mCurrentScreen;
 	Screen* mNextScreen;
-	Screen* mPlayScreen;
 
 	string mRandomMusic;
 	int mMusicNum;

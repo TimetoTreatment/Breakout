@@ -3,22 +3,22 @@
 
 IntroScreen::IntroScreen()
 {
-	mScreenTimer = new Timer;
+	mMainTimer = new Timer;
 	mPromptTimer = new Timer;
 
 	mTeamLogo = mLayoutManager->New("intro_teamLogo.txt", { mStatus->Width() / 2, 8 }, "white");
 	mTeamBoard = mLayoutManager->New("intro_teamBoard.txt", { mStatus->Width() / 2, 18 }, "white");
 	mTeamMember = mLayoutManager->New("intro_teamMember.txt", { mStatus->Width() / 2, 18 }, "white");
 	mGameLogo = mLayoutManager->New("intro_gameLogo.txt", { mStatus->Width() / 2, 35 }, "blue");
-	mStartPrompt = mLayoutManager->New("* Press Enter to Start *", { mStatus->Width() / 2 + 1, 18 }, "black");
+	mStartMenuPrompt = mLayoutManager->New("* Press Enter to Start *", { mStatus->Width() / 2 + 1, 18 });
 
 	mTeamLogo->Visible(false);
 	mTeamBoard->Visible(false);
 	mTeamMember->Visible(false);
 	mGameLogo->Visible(false);
-	mStartPrompt->Visible(false);
+	mStartMenuPrompt->Visible(false);
 
-	mPromptTimer->SetInterval(238);
+	mPromptTimer->SetInterval(250);
 	mPromptColor = "blue";
 }
 
@@ -37,7 +37,7 @@ void IntroScreen::Update()
 		mTeamBoard->Visible(false);
 		mTeamMember->Visible(false);
 		mGameLogo->Visible(false);
-		mStartPrompt->Visible(false);
+		mStartMenuPrompt->Visible(false);
 	}
 	else
 	{
@@ -45,24 +45,24 @@ void IntroScreen::Update()
 		mTeamBoard->Visible(true);
 		mTeamMember->Visible(true);
 
-		if (mScreenTimer->GetDeltaTime() > 5000)
+		if (mMainTimer->GetDeltaTime() > 5000)
 		{
 			mGameLogo->Visible(true);
 		}
 
-		if (mScreenTimer->GetDeltaTime() > 9000)
+		if (mMainTimer->GetDeltaTime() > 9000)
 		{
 			mTeamMember->Visible(false);
-			mStartPrompt->Visible(true);
+			mStartMenuPrompt->Visible(true);
 
 			if (mPromptTimer->Trigger())
 			{
-				mStartPrompt->Color(mPromptColor);
+				mStartMenuPrompt->Color(mPromptColor);
 
-				if (mPromptColor == "blue")
-					mPromptColor = "white";
-				else
+				if (mPromptColor == "white")
 					mPromptColor = "blue";
+				else
+					mPromptColor = "white";
 			}
 		}
 	}
@@ -75,5 +75,14 @@ void IntroScreen::Render()
 	mTeamBoard->Render();
 	mTeamMember->Render();
 	mGameLogo->Render();
-	mStartPrompt->Render();
+	mStartMenuPrompt->Render();
+}
+
+
+int IntroScreen::NextScreen()
+{
+	if (mInputManager->KeyPressedOnce(sf::Keyboard::Enter))
+		return 1;
+
+	return 0;
 }
