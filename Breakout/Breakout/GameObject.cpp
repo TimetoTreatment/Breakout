@@ -21,7 +21,7 @@ GameObject::~GameObject()
 
 void GameObject::Position(Coord position)
 {
-	_position += position;
+	_position = position;
 }
 
 Coord& GameObject::Position()

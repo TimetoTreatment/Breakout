@@ -98,11 +98,10 @@ void GameMain::Update()
 	}
 	else if (mPlayScreen == mCurrentScreen)
 	{
-		if (mPlayScreen->NextScreen() != 0)
+		if (mPlayScreen->NextScreen() == 1)
 		{
 			mPlayScreen->Active(false);
-			mNextScreen = mMainScreen;
-			mNextScreen->Active(true);
+			mStatus->Exit(true);
 		}
 	}
 

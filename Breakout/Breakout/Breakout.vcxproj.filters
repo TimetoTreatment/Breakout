@@ -93,7 +93,10 @@
     <ClCompile Include="PlayScreen.cpp">
       <Filter>소스 파일\Game</Filter>
     </ClCompile>
-    <ClCompile Include="TutorialScreen.cpp">
+    <ClCompile Include="GameStatus.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
       <Filter>소스 파일\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -149,7 +152,10 @@
     <ClInclude Include="PlayScreen.h">
       <Filter>헤더 파일\Game</Filter>
     </ClInclude>
-    <ClInclude Include="TutorialScreen.h">
+    <ClInclude Include="GameStatus.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
       <Filter>헤더 파일\Game</Filter>
     </ClInclude>
   </ItemGroup>

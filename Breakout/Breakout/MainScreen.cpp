@@ -15,7 +15,6 @@ MainScreen::MainScreen()
 	mSelector = mStartMenu;
 
 	mSelectMenu = 1;
-	mPrevSelectMenu = 0;
 	mMoveNextScreen = false;
 }
 
@@ -45,25 +44,16 @@ void MainScreen::Update()
 
 		if (mInputManager->KeyPressedOnce(sf::Keyboard::Down))
 		{
-			mPrevSelectMenu = mSelectMenu;
-
 			++mSelectMenu;
 			if (mSelectMenu > 3)
 				mSelectMenu = 1;
 		}
 		else if (mInputManager->KeyPressedOnce(sf::Keyboard::Up))
 		{
-			mPrevSelectMenu = mSelectMenu;
-
 			--mSelectMenu;
 			if (mSelectMenu < 1)
 				mSelectMenu = 3;
 		}
-
-
-
-
-
 
 		switch (mSelectMenu)
 		{
@@ -93,10 +83,6 @@ void MainScreen::Update()
 		}
 
 		
-
-
-
-
 	}
 	else
 	{

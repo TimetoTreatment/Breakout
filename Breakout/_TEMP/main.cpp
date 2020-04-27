@@ -10,7 +10,18 @@ using namespace std;
 
 int main()
 {
-    
+    string asdf = "¡ê  ¡ê  ¡ê  ¡ê  ¡ê  ";
+
+    cout << asdf << endl;
+
+    for (int i = 1; i < 10; i++)
+    {
+        asdf.pop_back();
+        asdf.pop_back();
+
+        cout << i << " : " << asdf << endl;
+
+    }
 
 
 

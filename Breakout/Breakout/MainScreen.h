@@ -18,13 +18,8 @@ private:
 
 	Layout* mSelector;
 
-
-
 	int mSelectMenu;
-	int mPrevSelectMenu;
 	bool mMoveNextScreen;
-
-
 
 public:
 	MainScreen();

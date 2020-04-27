@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="GameStatus.cpp" />
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Status.cpp" />
@@ -162,11 +163,12 @@
     <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Timer.cpp" />
-    <ClCompile Include="TutorialScreen.cpp" />
+    <ClCompile Include="Core.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="AudioManager.h" />
+    <ClInclude Include="GameStatus.h" />
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Status.h" />
@@ -182,7 +184,7 @@
     <ClInclude Include="MainScreen.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Timer.h" />
-    <ClInclude Include="TutorialScreen.h" />
+    <ClInclude Include="Core.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\music\intro.ogg" />
