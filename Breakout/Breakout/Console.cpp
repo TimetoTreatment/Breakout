@@ -23,7 +23,7 @@ void Console::Release()
 //////////////////////////////////
 /* Change Color Name to Integer */
 //////////////////////////////////
-int Console::colorNameToNumber(const string& colorName) const
+int Console::ColorNameToNumber(const string& colorName) const
 {
 	if (colorName == "default")
 		return -1;
@@ -58,8 +58,8 @@ void Console::clearConsole()
 ////////////////////
 void Console::setColor(string foreground, string background)
 {
-	int colorForeground = colorNameToNumber(foreground);
-	int colorBackground = colorNameToNumber(background);
+	int colorForeground = ColorNameToNumber(foreground);
+	int colorBackground = ColorNameToNumber(background);
 	int colorValue;
 
 	if (colorForeground == -1) colorForeground = 7;			// Defalut value is 7

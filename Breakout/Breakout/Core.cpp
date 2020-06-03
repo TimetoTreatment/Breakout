@@ -23,6 +23,8 @@ void Core::Release()
 
 Core::Core()
 {
+	mBar = new Bar;
+
 	mGameOver = false;
 	mLife = 4;
 }
@@ -30,6 +32,8 @@ Core::Core()
 
 Core::~Core()
 {
+	delete mBar;
+
 
 }
 
@@ -68,6 +72,16 @@ void Core::Update()
 {
 	if (mLife == 0)
 		mGameOver = true;
+
+	mBar->Update();
+
+}
+
+void Core::Render()
+{
+	mBar->Render();
+
+
 
 
 

@@ -47,6 +47,11 @@ void PlayScreen::Update()
 void PlayScreen::Render()
 {
 	mTopBar->Render();
+
+
 	mLife[mCore->Life() - 1]->Render();
+
+	mCore->Render();
+
 }
 

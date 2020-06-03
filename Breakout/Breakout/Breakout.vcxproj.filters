@@ -99,6 +99,9 @@
     <ClCompile Include="Core.cpp">
       <Filter>소스 파일\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Bar.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer.h">
@@ -158,6 +161,9 @@
     <ClInclude Include="Core.h">
       <Filter>헤더 파일\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Bar.h">
+      <Filter>헤더 파일\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\sfx\laugh1.ogg">
@@ -184,6 +190,9 @@
     <None Include="Assets\music\intro.ogg">
       <Filter>리소스 파일\music</Filter>
     </None>
+    <None Include="ClassDiagram.cd">
+      <Filter>리소스 파일</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="_Singleton.txt">
@@ -202,9 +211,6 @@
       <Filter>리소스 파일\layout</Filter>
     </Text>
     <Text Include="Assets\layout\mainmenu_brickwall.txt">
-      <Filter>리소스 파일\layout</Filter>
-    </Text>
-    <Text Include="Assets\layout\mainmenu_selector.txt">
       <Filter>리소스 파일\layout</Filter>
     </Text>
     <Text Include="Assets\layout\play_layout.txt">

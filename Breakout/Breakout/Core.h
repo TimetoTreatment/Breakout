@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Bar.h"
 
 
 using namespace std;
@@ -17,9 +18,12 @@ public:
 	static Core* Instance();
 	static void Release();
 
-
-
 private:
+
+	Bar* mBar;
+
+
+
 
 	bool mGameOver;
 	int mLife;
@@ -46,8 +50,7 @@ public:
 	string Item();
 
 
-
-
 	void Update();
+	void Render();
 };
 

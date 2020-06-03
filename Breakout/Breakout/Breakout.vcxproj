@@ -23,7 +23,7 @@
     <ProjectGuid>{16768322-9221-4C23-B6D7-A31AA693FA67}</ProjectGuid>
     <RootNamespace>Breakout</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>CodeSlayer</ProjectName>
+    <ProjectName>BreakOut</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="Bar.cpp" />
     <ClCompile Include="GameStatus.cpp" />
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="Screen.cpp" />
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="AudioManager.h" />
+    <ClInclude Include="Bar.h" />
     <ClInclude Include="GameStatus.h" />
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="Screen.h" />
@@ -195,6 +197,7 @@
     <None Include="Assets\sfx\laugh4.ogg" />
     <None Include="Assets\sfx\laugh5.ogg" />
     <None Include="Assets\sfx\laugh6.ogg" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\layout\intro_gameLogo.txt" />
@@ -202,7 +205,6 @@
     <Text Include="Assets\layout\intro_teamLogo.txt" />
     <Text Include="Assets\layout\intro_teamMember.txt" />
     <Text Include="Assets\layout\mainmenu_brickwall.txt" />
-    <Text Include="Assets\layout\mainmenu_selector.txt" />
     <Text Include="Assets\layout\play_layout.txt" />
     <Text Include="_Singleton.txt" />
   </ItemGroup>

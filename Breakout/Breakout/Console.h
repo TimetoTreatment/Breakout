@@ -18,7 +18,7 @@ private:
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	/* Change Color Name to Integer */
-	int colorNameToNumber(const string& colorName) const;
+	int ColorNameToNumber(const string& colorName) const;
 
 public:
 	/* Set Console Cursor Position */

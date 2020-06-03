@@ -6,8 +6,8 @@ MainScreen::MainScreen()
 	mScreenTimer = new Timer;
 	mScreenTimer->SetInterval(500);
 
-	mGameLogo = mLayoutManager->New("intro_gamelogo.txt", { mStatus->Width() / 2, 8 }, "white");
-	mBrickwall = mLayoutManager->New("mainmenu_brickwall.txt", { mStatus->Width() / 2, 30 }, "yellow");
+	mGameLogo = mLayoutManager->New("intro_gamelogo.txt", { mStatus->Width() / 2, 8 }, "blue");
+	mBrickwall = mLayoutManager->New("mainmenu_brickwall.txt", { mStatus->Width() / 2, 30 }, "white");
 	mStartMenu = mLayoutManager->New("Start CodeSlayer", { mStatus->Width() / 2, 27 }, "white");
 	mOptionMenu = mLayoutManager->New("Option", { mStatus->Width() / 2, 30 }, "white");
 	mExitMenu = mLayoutManager->New("Exit", { mStatus->Width() / 2, 33 }, "white");

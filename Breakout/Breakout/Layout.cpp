@@ -51,6 +51,7 @@ void Layout::OpenFromFile(const string& path)
 
 	mWidth = width;
 	mHeight = height;
+	file.close();
 }
 
 
@@ -109,6 +110,8 @@ void Layout::Render()
 		{
 			mConsole->setCursorPosition(startX, startY);
 			startY++;
+
+			cout << flush;
 
 			for (; mContents[index] != '\n'; index++)
 				cout << mContents[index];

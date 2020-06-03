@@ -18,7 +18,7 @@ void Status::Release()
 
 Status::Status()
 {
-	mFPS = 60;
+	mFPS = 240;
 	mWidth = 130;
 	mHeight = 45;
 	mExitMenu = false;

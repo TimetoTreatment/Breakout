@@ -9,6 +9,7 @@ Timer::Timer()
 	mIntervalTime = 0;
 	mTriggerCount = 0;
 	mNextTriggerTime = 0;
+	mCurrentTime = 0;
 }
 
 Timer::~Timer()
@@ -25,16 +26,12 @@ void Timer::SetInterval(unsigned int intervalTime)
 
 bool Timer::Trigger()
 {
-	if (GetDeltaTime() >= mNextTriggerTime)
-	{
-		if (mTriggeredOnce == false)
-		{
-			mTimer.restart();
-			mTriggeredOnce = true;
-		}
+	mCurrentTime = GetDeltaTime();
 
+	if (mCurrentTime >= mNextTriggerTime)
+	{
+		mNextTriggerTime = (mCurrentTime / mIntervalTime + 1) * mIntervalTime;
 		mTriggerCount++;
-		mNextTriggerTime = mIntervalTime * mTriggerCount;
 
 		return true;
 	}

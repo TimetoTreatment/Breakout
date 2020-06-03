@@ -8,9 +8,10 @@ private:
 	sf::Clock mTimer;
 
 	bool mTriggeredOnce;
+	unsigned int mCurrentTime;
 	unsigned int mIntervalTime;
-	unsigned int mTriggerCount;
 	unsigned int mNextTriggerTime;
+	unsigned int mTriggerCount;
 
 public:
 	Timer();

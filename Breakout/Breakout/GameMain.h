@@ -41,6 +41,14 @@ private:
 	int mMusicNum;
 	int mMusicNumMax;
 
+	enum class page
+	{
+		a = 1,
+		b,
+		c,
+		d
+	};
+
 
 
 
